@@ -1,0 +1,88 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+C1         CAPC1608X90X35ML15T15      118.11mm     137.668mm      118.11mm     137.668mm      118.96mm     137.668mm  T        180.00 1µF            
+C2         CAPC1608X90X35ML15T15      118.11mm     139.446mm      118.11mm     139.446mm      117.26mm     139.446mm  T        360.00 100nF          
+C3         CAPC1608X90X35NL15T15     133.477mm       139.7mm     133.477mm       139.7mm     132.727mm       139.7mm  T        360.00 1µF            
+C4         CAPC1608X90X35ML15T15     136.779mm       139.7mm     136.779mm       139.7mm     135.929mm       139.7mm  T        360.00 100nF          
+C5         CAPC1608X90X35ML15T15     164.719mm     113.919mm     164.719mm     113.919mm     165.569mm     113.919mm  T        180.00 100nF          
+C6         CAPC1608X90X35ML15T15     133.223mm      137.16mm     133.223mm      137.16mm     133.223mm      136.31mm  T         90.00 100nF          
+C7         CAPC1608X90X35ML15T15     126.111mm     136.271mm     126.111mm     136.271mm     126.961mm     136.271mm  T        180.00 100nF          
+C8         CAPC1608X90X35ML15T15     126.111mm     137.922mm     126.111mm     137.922mm     126.961mm     137.922mm  T        180.00 100nF          
+C9         CAPC1608X90X35ML15T15     143.637mm      113.03mm     143.637mm      113.03mm     143.637mm      112.18mm  T         90.00 1µF            
+C10        CAPC1608X90X35ML15T15      147.32mm     129.286mm      147.32mm     129.286mm      147.32mm     128.436mm  T         90.00 100nF          
+C11        CAPC1608X90X35ML15T15     145.415mm      129.54mm     145.415mm      129.54mm     145.415mm      128.69mm  T         90.00 100nF          
+C12        CAPC1608X90X35ML15T15     146.685mm     113.157mm     146.685mm     113.157mm     146.685mm     114.007mm  T        270.00 100nF          
+C13        CAPC1608X90X35ML15T15     143.129mm     129.032mm     143.129mm     129.032mm     143.129mm     128.182mm  T         90.00 100nF          
+C14        CAPC1608X90X35ML15T15     156.845mm     110.871mm     156.845mm     110.871mm     155.995mm     110.871mm  T        360.00 18pF           
+C15        CAPC1608X90X35ML15T15     153.289mm     110.871mm     153.289mm     110.871mm     154.139mm     110.871mm  T        180.00 18pF           
+C16        CASEC53x53x54       171.323mm      80.137mm     171.323mm      80.137mm     171.323mm      78.105mm  T        270.00 Kemet EXV226M016A9BAA
+C17        CAPC1608X90X35ML15T15     142.494mm      90.678mm     142.494mm      90.678mm     143.344mm      90.678mm  T        180.00 10nF           
+C18        CAPC1608X90X35ML15T15     141.859mm      79.629mm     141.859mm      79.629mm     142.709mm      79.629mm  T        180.00 100nF          
+C19        CAPC1608X90X35NL15T15     151.765mm      77.724mm     151.765mm      77.724mm     151.765mm      78.474mm  T        270.00 1µF            
+C20        CAPC1608X90X35NL15T15      153.67mm      77.724mm      153.67mm      77.724mm      153.67mm      78.474mm  T        270.00 1µF            
+C21        CAPC1608X90X35NL15T15     155.829mm      79.121mm     155.829mm      79.121mm     155.079mm      79.121mm  T          0.00 1µF            
+C22        CAPC1608X90X35ML15T15     167.386mm      80.518mm     167.386mm      80.518mm     167.386mm      79.668mm  T         90.00 100nF          
+C23        CASEC53x53x54       141.478mm      83.693mm     141.478mm      83.693mm      143.51mm      83.693mm  T        360.00 Kemet EXV226M016A9BAA
+C24        CAPC1608X90X35ML15T15     169.799mm     118.872mm     169.799mm     118.872mm     170.649mm     118.872mm  T        180.00 1µF            
+C25        CAPC1608X90X35ML15T15     169.799mm      120.65mm     169.799mm      120.65mm     170.649mm      120.65mm  T        180.00 10nF           
+C26        CAPC1608X90X35ML15T15     169.799mm     122.428mm     169.799mm     122.428mm     168.949mm     122.428mm  T        360.00 100nF          
+C27        CAPC1608X90X35NL15T15     175.768mm      97.155mm     175.768mm      97.155mm     175.768mm      97.905mm  T        270.00 1µF            
+C28        CAPC1608X90X35ML15T15     160.782mm     100.203mm     160.782mm     100.203mm     161.632mm     100.203mm  T        180.00 100nF          
+C29        CAPC1608X90X35ML15T15     160.782mm      96.393mm     160.782mm      96.393mm     161.632mm      96.393mm  T        180.00 100nF          
+C30        CAPC1608X90X35NL15T15     175.768mm     100.457mm     175.768mm     100.457mm     175.768mm     101.207mm  T        270.00 1µF            
+C31        CAPC1608X90X35ML15T15     154.178mm     104.902mm     154.178mm     104.902mm     155.028mm     104.902mm  T        180.00 18pF           
+C32        CAPC1608X90X35ML15T15     154.178mm     103.124mm     154.178mm     103.124mm     153.328mm     103.124mm  T        360.00 18pF           
+C33        CAPC1608X90X35ML15T15     154.178mm     101.346mm     154.178mm     101.346mm     155.028mm     101.346mm  T        180.00 18pF           
+C34        CAPC1608X90X35ML15T15     155.067mm      98.552mm     155.067mm      98.552mm     155.067mm      97.702mm  T         90.00 18pF           
+C35        CAPC1608X90X35ML15T15     146.558mm      91.059mm     146.558mm      91.059mm     146.558mm      90.209mm  T         90.00 18pF           
+C36        CAPC1608X90X35ML15T15     146.558mm      87.503mm     146.558mm      87.503mm     146.558mm      88.353mm  T        270.00 18pF           
+C37        CAPC1608X90X35ML15T15     127.635mm     128.778mm     127.635mm     128.778mm     126.785mm     128.778mm  T        360.00 100nF          
+C38        CAPC1608X90X35ML15T15     129.413mm     124.333mm     129.413mm     124.333mm     129.413mm     125.183mm  T        270.00 10nF           
+D1         LED1608x55M         159.258mm     150.368mm     159.258mm     150.368mm     158.408mm     150.368mm  T        360.00 Error          
+D2         LED1608x55M         159.258mm     148.717mm     159.258mm     148.717mm     160.108mm     148.717mm  T        180.00 SD OK          
+D3         MF06A_N             148.209mm     102.616mm     148.209mm     102.616mm     147.009mm     103.566mm  T        360.00 USBLC6-2SC6    
+D4         LED1608x55M         159.766mm      93.472mm     159.766mm      93.472mm     158.916mm      93.472mm  T          0.00 TX             
+D5         LED1608x55M         159.893mm      91.821mm     159.893mm      91.821mm     159.043mm      91.821mm  T          0.00 RX             
+D6         LED1608x55L         161.925mm     142.621mm     161.925mm     142.621mm     162.575mm     142.621mm  T        180.00 Power          
+D7         MF06A_N             125.476mm       114.3mm     125.476mm       114.3mm     124.276mm      115.25mm  T        360.00 USBLC6-2SC6    
+F1         PTC-1206            143.637mm    137.9332mm     143.637mm     137.922mm     143.637mm     136.522mm  T         90.00 MC36207        
+F2         PTC-1206           147.0548mm      77.216mm     147.066mm      77.216mm     148.466mm      77.216mm  T        180.00 MC36207        
+IC1        MQ-SENSOR          130.1751mm    150.7469mm     130.175mm     150.749mm    126.8163mm    147.3881mm  T         90.00 MQ-135         
+IC2        PCB-2132449-2       136.652mm     136.144mm     136.652mm     136.144mm     138.152mm     137.594mm  T        270.00 BMP180         
+IC3        DHT11-RIGHT_ANGLE    167.9079mm    111.5061mm     178.308mm     111.506mm    167.9079mm    115.3161mm  T        270.00 DHT11          
+IC4        QFN-10-Si114X       129.921mm     136.398mm     129.921mm     136.398mm     130.846mm     135.648mm  T        180.00 Silicon Labs SI1145-A10-GMR
+IC5        32A_L               144.399mm      120.65mm     144.399mm      120.65mm     141.599mm       116.5mm  T         90.00 ATmega328-AU   
+IC6        TI-DCY4_N           161.671mm      79.375mm     161.671mm      79.375mm     158.496mm      81.675mm  T        360.00 TLV1117LV33DCYT
+K1         PCB-648449-1         149.86mm     141.351mm      149.86mm     141.351mm      151.13mm     138.811mm  T         90.00 ICSP           
+K2         PCB-778430-1        127.581mm      99.056mm     122.936mm       99.06mm     129.936mm      97.806mm  T        270.00 Adam Tech USB-B-S-RA
+K3         HDR-3RA_L           116.586mm     112.903mm     116.586mm     112.903mm    116.5859mm    110.3631mm  T         90.00 UART           
+K4         PCB-5yupddsicqn8qq7gr5lb-1       177.8mm      87.757mm      176.53mm      87.757mm      176.53mm      87.757mm  T        270.00 Reset          
+K5         PCB-5yupddsicqn8qq7gr5lb-1       177.8mm      91.313mm      179.07mm      91.313mm      179.07mm      91.313mm  T         90.00 CTS            
+MOD1       PCB-syx0gal1an9w1b8ku6eg-1    168.9735mm     137.922mm     178.308mm     126.238mm     175.808mm     126.238mm  B        180.00 SD Card        
+R1         PCB-4znn9p9v94mkvon4dh1z-1      143.51mm    153.1621mm      143.51mm     153.162mm     144.399mm    154.4121mm  T        270.00 47k            
+R2         PCB-4znn9p9v94mkvon4dh1z-1    163.0681mm     109.601mm     163.068mm     109.601mm    164.3181mm     108.712mm  T        180.00 4k7            
+R3         PCB-4znn9p9v94mkvon4dh1z-1     134.366mm    117.0941mm     134.366mm     117.094mm     135.255mm    118.3441mm  T        270.00 4k7            
+R4         MOV-0805_M          141.986mm      77.216mm     141.986mm      77.216mm     141.061mm      77.216mm  T          0.00 VCAS080509A200DP
+R5         PCB-4znn9p9v94mkvon4dh1z-1     164.846mm    118.7449mm     164.846mm     118.745mm     163.957mm    117.4949mm  T         90.00 47k            
+R6         PCB-4znn9p9v94mkvon4dh1z-1     164.846mm    122.6819mm     164.846mm     122.682mm     163.957mm    121.4319mm  T         90.00 47k            
+R7         PCB-4znn9p9v94mkvon4dh1z-1      132.08mm    123.8249mm      132.08mm     123.825mm     131.191mm    122.5749mm  T         90.00 47k            
+R8         PCB-4znn9p9v94mkvon4dh1z-1     163.322mm    149.0981mm     163.322mm     149.098mm     164.211mm    150.3481mm  T        270.00 220O           
+R9         RESC1608x55M        147.955mm     105.791mm     147.955mm     105.791mm     148.805mm     105.791mm  T        180.00 10O            
+R10        RESC1608x55M        150.368mm      97.536mm     150.368mm      97.536mm     151.218mm      97.536mm  T        180.00 10O            
+R11        PCB-4znn9p9v94mkvon4dh1z-1     155.194mm     92.2021mm     155.194mm      92.202mm     156.083mm     93.4521mm  T        270.00 220O           
+R12        PCB-4znn9p9v94mkvon4dh1z-1     119.888mm    114.2999mm     119.888mm       114.3mm     118.999mm    113.0499mm  T         90.00 220O           
+S1         TACTILE-PTH         122.428mm     125.984mm     122.428mm     125.984mm    120.1674mm    122.7328mm  T         90.00 Panasonic EVQ-PBC04M
+T1         PCB-1pmjkk1zd7qx1b0ywcup-1     138.303mm      132.08mm     138.303mm      132.08mm     138.303mm      132.08mm  B        180.00 SDA            
+T2         PCB-1pmjkk1zd7qx1b0ywcup-1     134.493mm     131.445mm     134.493mm     131.445mm     134.493mm     131.445mm  B        180.00 SCL            
+T3         PCB-1pmjkk1zd7qx1b0ywcup-1     161.671mm     113.919mm     161.671mm     113.919mm     161.671mm     113.919mm  B        180.00 MOSI           
+T4         PCB-1pmjkk1zd7qx1b0ywcup-1     158.242mm     117.729mm     158.242mm     117.729mm     158.242mm     117.729mm  B        180.00 MISO           
+T5         PCB-1pmjkk1zd7qx1b0ywcup-1     152.146mm     130.937mm     152.146mm     130.937mm     152.146mm     130.937mm  B        180.00 SCK            
+T6         PCB-1pmjkk1zd7qx1b0ywcup-1     132.842mm     111.506mm     132.842mm     111.506mm     132.842mm     111.506mm  B        180.00 TX             
+T7         PCB-1pmjkk1zd7qx1b0ywcup-1     129.032mm     118.618mm     129.032mm     118.618mm     129.032mm     118.618mm  B        180.00 RX             
+T8         PCB-1pmjkk1zd7qx1b0ywcup-1     149.098mm     147.955mm     149.098mm     147.955mm     149.098mm     147.955mm  B        180.00 Reset          
+U1         SOIC-SO20_N         168.783mm      94.488mm     168.783mm      94.488mm     164.233mm     100.203mm  T          0.00 MCP2200-I/SO   
+X1         XTAL-HC49S          154.432mm       114.3mm     154.432mm       114.3mm     156.872mm       114.3mm  T        180.00 16MHz          
+X2         XTAL-HC49S           149.86mm      89.408mm      149.86mm      89.408mm      149.86mm      91.848mm  T        270.00 12 MHz         
+FL1        INDC2012X105ML      142.367mm      88.011mm     142.367mm      88.011mm     141.342mm      88.011mm  T          0.00 BLM21PG331SN1D 
+FL2        INDC2012X105ML      136.144mm     108.077mm     136.144mm     108.077mm     137.169mm     108.077mm  T        180.00 BLM21PG331SN1D 
+

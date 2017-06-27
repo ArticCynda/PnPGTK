@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 14:27:17 On 25/02/2015
+
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of PCB Document [ICtest.PcbDoc]
+   Generated File[Pick Place for ICtest.txt]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 14:27:18 On 25/02/2015

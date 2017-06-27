@@ -1,0 +1,16 @@
+C:\WebServices\clientapp\ClientApp\SearchClient\obj\Debug\ResolveAssemblyReference.cache
+C:\WebServices\clientapp\ClientApp\SearchClient\obj\Debug\ClientApp.SearchForm.resources
+C:\WebServices\clientapp\ClientApp\SearchClient\obj\Debug\SearchClient.csproj.GenerateResource.Cache
+C:\WebServices\clientapp\ClientApp\SearchClient\obj\Debug\ClientApp.exe
+C:\WebServices\clientapp\ClientApp\SearchClient\bin\Debug\ClientApp.exe.config
+C:\WebServices\clientapp\ClientApp\SearchClient\bin\Debug\ClientApp.exe
+C:\WebServices\clientapp\ClientApp\SearchClient\bin\Debug\ClientApp.pdb
+C:\WebServices\clientapp\ClientApp\SearchClient\obj\Debug\ClientApp.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\bin\Debug\ClientApp.exe.config
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\bin\Debug\ClientApp.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\bin\Debug\ClientApp.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\obj\Debug\ClientApp.SearchForm.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\obj\Debug\SearchClient.csproj.GenerateResource.Cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\obj\Debug\ClientApp.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\ClientApp\SearchClient\obj\Debug\ClientApp.pdb

@@ -1,0 +1,3 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\minibzip2\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\minibzip2\obj\Debug\NewProject.MainForm.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\minibzip2\obj\Debug\minibzip2.vbproj.GenerateResource.Cache

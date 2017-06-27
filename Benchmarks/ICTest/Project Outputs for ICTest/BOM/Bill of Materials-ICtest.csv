@@ -1,0 +1,7 @@
+Comment,Description,Designator,Footprint,LibRef,Quantity
+
+"Green","Typical INFRARED GaAs LED","D1, D2","LED-GREEN-0603","LED0","2"
+"ILD205T","Optocoupler, Phototransistor Output, Dual Channel","IC1, IC2","IC-SOIC-8","ILD205T","2"
+"MCP2200-I/SO","USB 2.0 to UART Protocol Converter with GPIO, 20-Pin SOIC, Industrial Temperature","IC3","IC-SOIC-20","CMP-0186-00205-1","1"
+"PIC24F16KA301T-I/SS","16-Bit Flash Microcontroller with XLP Technology, 16KB Flash, 2KB SRAM, 20-Pin SSOP, Industrial Temperature, Tape and Reel","IC4","IC-TSSOP-20","CMP-0046-00392-1","1"
+"PMN25EN","30V, 6.2A, N-channel Trench MOSFET","T1, T2, T3, T4","IC-TSOT-6","PMN25EN","4"

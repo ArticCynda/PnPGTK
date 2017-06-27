@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=IC3 Old Footprint=IC-SOIC-20 New Footprint=IC-SOIC-20
+Added Component: Designator=IC4(IC-TSSOP-20)
+Added Member To Class: ClassName=ICtest Member=Component IC4 PIC24F16KA301T-I/SS

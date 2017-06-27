@@ -1,0 +1,27 @@
+Added Component: Designator=IC1(IC-SOIC-8)
+Added Component: Designator=IC2(IC-SOIC-8)
+Added Component: Designator=T1(IC-TSOT-6)
+Added Component: Designator=T2(IC-TSOT-6)
+Added Component: Designator=T3(IC-TSOT-6)
+Added Component: Designator=T4(IC-TSOT-6)
+Added Pin To Net: NetName=NetT1_1 Pin=T1-1
+Added Pin To Net: NetName=NetT1_1 Pin=T1-2
+Added Pin To Net: NetName=NetT1_1 Pin=T1-5
+Added Pin To Net: NetName=NetT1_1 Pin=T1-6
+Added Net: Name=NetT1_1
+Added Pin To Net: NetName=NetT2_1 Pin=T2-1
+Added Pin To Net: NetName=NetT2_1 Pin=T2-2
+Added Pin To Net: NetName=NetT2_1 Pin=T2-5
+Added Pin To Net: NetName=NetT2_1 Pin=T2-6
+Added Net: Name=NetT2_1
+Added Pin To Net: NetName=NetT3_1 Pin=T3-1
+Added Pin To Net: NetName=NetT3_1 Pin=T3-2
+Added Pin To Net: NetName=NetT3_1 Pin=T3-5
+Added Pin To Net: NetName=NetT3_1 Pin=T3-6
+Added Net: Name=NetT3_1
+Added Pin To Net: NetName=NetT4_1 Pin=T4-1
+Added Pin To Net: NetName=NetT4_1 Pin=T4-2
+Added Pin To Net: NetName=NetT4_1 Pin=T4-5
+Added Pin To Net: NetName=NetT4_1 Pin=T4-6
+Added Net: Name=NetT4_1
+Added Class: Name=ICtest

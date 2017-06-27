@@ -1,0 +1,6 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\bin\ICSharpCode.SharpZipLib.xml
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\bin\ICSharpCode.SharpZipLib.dll
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\bin\ICSharpCode.SharpZipLib.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\src\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\src\obj\Debug\ICSharpCode.SharpZipLib.dll
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\src\obj\Debug\ICSharpCode.SharpZipLib.pdb

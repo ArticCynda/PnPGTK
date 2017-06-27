@@ -1,0 +1,14 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\bin\Debug\PnPConverter.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\bin\Debug\PnPConverter.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.EditReelSettings.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.NewReelDialog.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.ProjectWizard.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.ExcludedPartsDialog.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.Properties.Resources.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.ReelSettings.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.ReelSettingsPicker.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.StackLoader.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.csproj.GenerateResource.Cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\obj\Debug\PnPConverter.pdb

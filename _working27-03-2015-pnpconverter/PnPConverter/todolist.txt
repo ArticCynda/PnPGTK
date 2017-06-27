@@ -1,0 +1,13 @@
+TODO:
+- height checks
+- automatic nozzle assignments
+- [FIXED] PnP file import checks
+- [FIXED] first reel doesn't progress automatically => machine bug? => exclude!
+- coördinaten van de footprint = center van de component?
+- [FIXED] reel rotation setting
+- reel setting editor
+- [FIXED] bestaande reels worden niet herkend (reel assignment)
+- cycling door tabs werkt niet
+- machine config wordt niet correct opgeslagen
+- afmetingen component automatisch converteren naar centers
+- rare karakters (µ) wordt niet herkend

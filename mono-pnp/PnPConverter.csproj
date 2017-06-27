@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E903F2D6-DF0A-464A-AB56-86A50AF43FE8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PnPConverter</RootNamespace>
+    <AssemblyName>PnPConverter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADLibReader.cs" />
+    <Compile Include="BomReader.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="EditReelSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditReelSettings.Designer.cs">
+      <DependentUpon>EditReelSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewReelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewReelDialog.Designer.cs">
+      <DependentUpon>NewReelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PnPPanel.cs" />
+    <Compile Include="ProjectWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.DataImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.Designer.cs">
+      <DependentUpon>ProjectWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OmittedParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OmittedParts.Designer.cs">
+      <DependentUpon>OmittedParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PnPPart.cs" />
+    <Compile Include="PnPFileReader.cs" />
+    <Compile Include="PnPMachine.cs" />
+    <Compile Include="PnPProject.cs" />
+    <Compile Include="PnPReel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectWizard.Global.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.PanelSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.Phases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWizard.ReelConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditReelSettings.resx">
+      <DependentUpon>EditReelSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewReelDialog.resx">
+      <DependentUpon>NewReelDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectWizard.resx">
+      <DependentUpon>ProjectWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OmittedParts.resx">
+      <DependentUpon>OmittedParts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReelSettings.resx">
+      <DependentUpon>ReelSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReelSettingsPicker.resx">
+      <DependentUpon>ReelSettingsPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StackLoader.resx">
+      <DependentUpon>StackLoader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PnPStack.cs" />
+    <Compile Include="ReelSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReelSettings.Designer.cs">
+      <DependentUpon>ReelSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReelSettingsPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReelSettingsPicker.Designer.cs">
+      <DependentUpon>ReelSettingsPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StackLoader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StackLoader.Designer.cs">
+      <DependentUpon>StackLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TM220A.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nok.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

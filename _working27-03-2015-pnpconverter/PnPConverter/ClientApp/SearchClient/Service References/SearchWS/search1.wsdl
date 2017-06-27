@@ -1,0 +1,1237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.digikey.com/SearchWS" xmlns:s1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://services.digikey.com/SearchWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides a service-oriented API to Digi-Key part information for authorized partners.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.digikey.com/SearchWS">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetAlternatePackagingByDigikeyPartNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digikeyPartNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlternatePackagingByDigikeyPartNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlternatePackagingByDigikeyPartNumberResult" type="tns:AlternatePackagingOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlternatePackagingOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AlternatePackagingList" type="tns:ArrayOfAlternatePackaging" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAlternatePackaging">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AlternatePackaging" nillable="true" type="tns:AlternatePackaging" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AlternatePackaging">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityOnHand" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimumOrderQuantity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PartnerInformation" type="tns:PartnerInformationSoapHeader" />
+      <s:complexType name="PartnerInformationSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartnerID" type="s2:guid" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetProductInfoByDigikeyPartNumberSiteLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digikeyPartNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInfoByDigikeyPartNumberSiteLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInfoByDigikeyPartNumberSiteLanguageResult" type="tns:EDAProductInfoInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EDAProductInfoInt">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EDAProductInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EDAProductInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductInfoOfEDAPricing" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ProductInfoOfEDAPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BaseProductInfo" type="tns:BaseProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSheetList" type="tns:ArrayOfDataSheet" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhotoList" type="tns:ArrayOfPhoto" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeList" type="tns:ArrayOfAttribute" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawingList" type="tns:ArrayOfDrawing" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pricing" type="tns:EDAPricing" />
+          <s:element minOccurs="0" maxOccurs="1" name="RohsInfo" type="tns:RohsInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesInfo" type="tns:SalesInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeadContent" type="tns:LeadContent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityOnHand" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDataSheet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataSheet" nillable="true" type="tns:DataSheet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataSheet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPhoto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Photo" nillable="true" type="tns:Photo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Photo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="tns:Attribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Value" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDrawing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Drawing" nillable="true" type="tns:Drawing" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Drawing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EDAPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PriceBreakList" type="tns:ArrayOfPriceBreak" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiscountedPriceBreakList" type="tns:ArrayOfPriceBreak" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPriceBreak">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PriceBreak" nillable="true" type="tns:PriceBreak" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PriceBreak">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BreakQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+        </s:sequence>
+        <s:attribute name="level" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="PriceBreakItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EDAPricing">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PackagingType" type="tns:PackagingTypeItem" />
+              <s:element minOccurs="1" maxOccurs="1" name="QuantityOnHand" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="SalesInfo" type="tns:SalesInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PackagingTypeItem">
+        <s:attribute name="id" type="s:int" use="required" />
+        <s:attribute name="name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="SalesInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesStatus" type="tns:SalesStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SalesStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+          <s:enumeration value="3" />
+          <s:enumeration value="4" />
+          <s:enumeration value="5" />
+          <s:enumeration value="6" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RohsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RohsStatus" type="tns:RohsStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RohsStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+          <s:enumeration value="3" />
+          <s:enumeration value="4" />
+          <s:enumeration value="5" />
+          <s:enumeration value="6" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LeadContent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeadStatus" type="tns:LeadStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LeadStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+          <s:enumeration value="3" />
+          <s:enumeration value="4" />
+          <s:enumeration value="5" />
+          <s:enumeration value="6" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetProductInfoByDigikeyPartNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digikeyPartNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInfoByDigikeyPartNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInfoByDigikeyPartNumberResult" type="tns:EDAProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuantityOnHandByDigikeyPartNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digikeyPartNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuantityOnHandByDigikeyPartNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetQuantityOnHandByDigikeyPartNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordSearchSiteLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SearchOptions">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="RohsCompliant" />
+              <s:enumeration value="LeadFree" />
+              <s:enumeration value="InStock" />
+              <s:enumeration value="RohsCompliantLeadFree" />
+              <s:enumeration value="RohsCompliantInStock" />
+              <s:enumeration value="LeadFreeInStock" />
+              <s:enumeration value="All" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="KeywordSearchSiteLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordSearchSiteLanguageResult" type="tns:BaseProductInfoCollectionInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BaseProductInfoCollectionInt">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseProductInfoCollection">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseProductInfoCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="tns:ArrayOfBaseProductInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBaseProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BaseProductInfo" nillable="true" type="tns:BaseProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KeywordSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordSearchResult" type="tns:BaseProductInfoCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByManufacturerPartNumberSiteLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturerPartNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByManufacturerPartNumberSiteLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchByManufacturerPartNumberSiteLanguageResult" type="tns:BaseProductInfoCollectionInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByManufacturerPartNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturerPartNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByManufacturerPartNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchByManufacturerPartNumberResult" type="tns:BaseProductInfoCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByVendorSiteLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByVendorSiteLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchByVendorSiteLanguageResult" type="tns:BaseProductInfoCollectionInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByVendor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchByVendorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchByVendorResult" type="tns:BaseProductInfoCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SystemAvailabilityCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="SystemAvailabilityCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemAvailabilityCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordSearchSiteLanguageIncludePricing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordSearchSiteLanguageIncludePricingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordSearchSiteLanguageIncludePricingResult" type="tns:BaseProductInfoPricingCollectionInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BaseProductInfoPricingCollectionInt">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseProductInfoPricingCollection">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseProductInfoPricingCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="tns:ArrayOfBaseProductInfoPricing" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBaseProductInfoPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BaseProductInfoPricing" nillable="true" type="tns:BaseProductInfoPricing" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseProductInfoPricing">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseProductInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="MinimumOrderQuantity" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="KeywordSearchIncludePricing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordSearchIncludePricingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordSearchIncludePricingResult" type="tns:BaseProductInfoPricingCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeywordParametricSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordStartPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="options" type="tns:SearchOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="families" type="tns:ArrayOfInt1" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametricValues" type="tns:ArrayOfParametricValue" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="expandPackaging" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoryID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FamilyID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfParametricValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParametricValue" nillable="true" type="tns:ParametricValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParametricValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ParameterID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValueID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KeywordParametricSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordParametricSearchResult" type="tns:CategoryCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CategoryCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryList" type="tns:ArrayOfCategory" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="tns:ArrayOfBaseProductInfoPricing" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParameterList" type="tns:ArrayOfParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Category">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyList" type="tns:ArrayOfFamily" />
+        </s:sequence>
+        <s:attribute name="cid" type="s:int" use="required" />
+        <s:attribute name="name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfFamily">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Family" nillable="true" type="tns:Family" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Family">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+        </s:sequence>
+        <s:attribute name="fid" type="s:int" use="required" />
+        <s:attribute name="name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="tns:Parameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfValue" />
+        </s:sequence>
+        <s:attribute name="pid" type="s:int" use="required" />
+        <s:attribute name="name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Value" nillable="true" type="tns:Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Value">
+        <s:attribute name="vid" type="s:int" use="required" />
+        <s:attribute name="name" type="s:string" />
+      </s:complexType>
+      <s:element name="GetProductInfoByDigikeyPartNumber2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digikeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInfoByDigikeyPartNumber2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInfoByDigikeyPartNumber2Result" type="tns:MobileProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MobileProductInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductInfoOfMobilePricing">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ProductInfoOfMobilePricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BaseProductInfo" type="tns:BaseProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSheetList" type="tns:ArrayOfDataSheet" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhotoList" type="tns:ArrayOfPhoto" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeList" type="tns:ArrayOfAttribute" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawingList" type="tns:ArrayOfDrawing" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pricing" type="tns:MobilePricing" />
+          <s:element minOccurs="0" maxOccurs="1" name="RohsInfo" type="tns:RohsInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesInfo" type="tns:SalesInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeadContent" type="tns:LeadContent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobilePricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PriceBreakItemList" type="tns:ArrayOfPriceBreakItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPriceBreakItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PriceBreakItem" nillable="true" type="tns:PriceBreakItem" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <s:element name="Security" type="s1:SecuritySoapHeader" />
+      <s:complexType name="SecuritySoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UsernameToken" type="s1:UsernameToken" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="UsernameToken">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAlternatePackagingByDigikeyPartNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlternatePackagingByDigikeyPartNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetAlternatePackagingByDigikeyPartNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlternatePackagingByDigikeyPartNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlternatePackagingByDigikeyPartNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetAlternatePackagingByDigikeyPartNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSiteLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumberSiteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSiteLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumberSiteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSiteLanguageSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSiteLanguagePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetQuantityOnHandByDigikeyPartNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuantityOnHandByDigikeyPartNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetQuantityOnHandByDigikeyPartNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuantityOnHandByDigikeyPartNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuantityOnHandByDigikeyPartNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetQuantityOnHandByDigikeyPartNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:KeywordSearchSiteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:KeywordSearchSiteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguagePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:KeywordSearch" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:KeywordSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSiteLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchByManufacturerPartNumberSiteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSiteLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchByManufacturerPartNumberSiteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSiteLanguageSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSiteLanguagePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchByManufacturerPartNumber" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchByManufacturerPartNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SearchByManufacturerPartNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSiteLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchByVendorSiteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSiteLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchByVendorSiteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSiteLanguageSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSiteLanguagePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchByVendor" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchByVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SearchByVendorPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SystemAvailabilityCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SystemAvailabilityCheck" />
+  </wsdl:message>
+  <wsdl:message name="SystemAvailabilityCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SystemAvailabilityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageIncludePricingSoapIn">
+    <wsdl:part name="parameters" element="tns:KeywordSearchSiteLanguageIncludePricing" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageIncludePricingSoapOut">
+    <wsdl:part name="parameters" element="tns:KeywordSearchSiteLanguageIncludePricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageIncludePricingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchSiteLanguageIncludePricingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchIncludePricingSoapIn">
+    <wsdl:part name="parameters" element="tns:KeywordSearchIncludePricing" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchIncludePricingSoapOut">
+    <wsdl:part name="parameters" element="tns:KeywordSearchIncludePricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchIncludePricingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="KeywordSearchIncludePricingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="KeywordParametricSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:KeywordParametricSearch" />
+  </wsdl:message>
+  <wsdl:message name="KeywordParametricSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:KeywordParametricSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeywordParametricSearchSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="KeywordParametricSearchPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumber2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumber2" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumber2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInfoByDigikeyPartNumber2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumber2Security">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoByDigikeyPartNumber2PartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:portType name="SearchServiceSoap">
+    <wsdl:operation name="GetAlternatePackagingByDigikeyPartNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for alternate packaging options for a Digi-Key Part Number</wsdl:documentation>
+      <wsdl:input message="tns:GetAlternatePackagingByDigikeyPartNumberSoapIn" />
+      <wsdl:output message="tns:GetAlternatePackagingByDigikeyPartNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumberSiteLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a Digi-Key Part Number, Site, and Language and returns a ProductInfo record that consists of component specifications, quantity on hand, price breaks, etc. for that part number.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInfoByDigikeyPartNumberSiteLanguageSoapIn" />
+      <wsdl:output message="tns:GetProductInfoByDigikeyPartNumberSiteLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a Digi-Key Part Number and returns a ProductInfo record that consists of component specifications, quantity on hand, price breaks, etc. for that part number.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInfoByDigikeyPartNumberSoapIn" />
+      <wsdl:output message="tns:GetProductInfoByDigikeyPartNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuantityOnHandByDigikeyPartNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a Digi-Key Part Number and returns the current quantity on hand.</wsdl:documentation>
+      <wsdl:input message="tns:GetQuantityOnHandByDigikeyPartNumberSoapIn" />
+      <wsdl:output message="tns:GetQuantityOnHandByDigikeyPartNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a keyword/text string of up to 250 characters, a numerical parameter representing how many records to return (with a maximum of 100), a numerical parameter representing what position to start returning records from, a parameter (Flags Enumeration) that represents search options (In Stock, Lead Free, Rohs Compliant), Site, and Language.</wsdl:documentation>
+      <wsdl:input message="tns:KeywordSearchSiteLanguageSoapIn" />
+      <wsdl:output message="tns:KeywordSearchSiteLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a keyword/text string of up to 250 characters, a numerical parameter representing how many records to return (with a maximum of 100), a numerical parameter representing what position to start returning records from, and a parameter (Flags Enumeration) that represents search options (In Stock, Lead Free, Rohs Compliant).</wsdl:documentation>
+      <wsdl:input message="tns:KeywordSearchSoapIn" />
+      <wsdl:output message="tns:KeywordSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumberSiteLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for parts based on a specified Mfr. Part Number, Site, and Language</wsdl:documentation>
+      <wsdl:input message="tns:SearchByManufacturerPartNumberSiteLanguageSoapIn" />
+      <wsdl:output message="tns:SearchByManufacturerPartNumberSiteLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for parts based on a specified Mfr. Part Number.</wsdl:documentation>
+      <wsdl:input message="tns:SearchByManufacturerPartNumberSoapIn" />
+      <wsdl:output message="tns:SearchByManufacturerPartNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendorSiteLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for parts based on a specified vendorID, Site, and Language</wsdl:documentation>
+      <wsdl:input message="tns:SearchByVendorSiteLanguageSoapIn" />
+      <wsdl:output message="tns:SearchByVendorSiteLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for parts based on a specified vendorID</wsdl:documentation>
+      <wsdl:input message="tns:SearchByVendorSoapIn" />
+      <wsdl:output message="tns:SearchByVendorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks the status of the search web service</wsdl:documentation>
+      <wsdl:input message="tns:SystemAvailabilityCheckSoapIn" />
+      <wsdl:output message="tns:SystemAvailabilityCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguageIncludePricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a keyword/text string of up to 250 characters, a numerical parameter representing how many records to return (with a maximum of 100), a numerical parameter representing what position to start returning records from, a parameter (Flags Enumeration) that represents search options (In Stock, Lead Free, Rohs Compliant), Site, and Language.</wsdl:documentation>
+      <wsdl:input message="tns:KeywordSearchSiteLanguageIncludePricingSoapIn" />
+      <wsdl:output message="tns:KeywordSearchSiteLanguageIncludePricingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchIncludePricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a keyword/text string of up to 250 characters, a numerical parameter representing how many records to return (with a maximum of 100), a numerical parameter representing what position to start returning records from, and a parameter (Flags Enumeration) that represents search options (In Stock, Lead Free, Rohs Compliant).</wsdl:documentation>
+      <wsdl:input message="tns:KeywordSearchIncludePricingSoapIn" />
+      <wsdl:output message="tns:KeywordSearchIncludePricingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeywordParametricSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches part records by keyword(s), categories, families, parametric values, site, and language.  WARNING: This method is reserved for use by the Digi-Key mobile application.</wsdl:documentation>
+      <wsdl:input message="tns:KeywordParametricSearchSoapIn" />
+      <wsdl:output message="tns:KeywordParametricSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accepts a Digi-Key Part Number, Site, and Language and returns a ProductInfo record that consists of component specifications, quantity on hand, price breaks, etc. for that part number.  WARNING: This method is reserved for use by the Digi-Key mobile application.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInfoByDigikeyPartNumber2SoapIn" />
+      <wsdl:output message="tns:GetProductInfoByDigikeyPartNumber2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SearchServiceSoap" type="tns:SearchServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlternatePackagingByDigikeyPartNumber">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/GetAlternatePackagingByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAlternatePackagingByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetAlternatePackagingByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumberSiteLanguage">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumberSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumberSiteLanguageSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumberSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuantityOnHandByDigikeyPartNumber">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/GetQuantityOnHandByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetQuantityOnHandByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetQuantityOnHandByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguage">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:KeywordSearchSiteLanguageSecurity" part="Security" use="literal" />
+        <soap:header message="tns:KeywordSearchSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearch">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:KeywordSearchSecurity" part="Security" use="literal" />
+        <soap:header message="tns:KeywordSearchPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumberSiteLanguage">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/SearchByManufacturerPartNumberSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchByManufacturerPartNumberSiteLanguageSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SearchByManufacturerPartNumberSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumber">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/SearchByManufacturerPartNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchByManufacturerPartNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SearchByManufacturerPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendorSiteLanguage">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/SearchByVendorSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchByVendorSiteLanguageSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SearchByVendorSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendor">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/SearchByVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchByVendorSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SearchByVendorPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/SystemAvailabilityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguageIncludePricing">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchSiteLanguageIncludePricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:KeywordSearchSiteLanguageIncludePricingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:KeywordSearchSiteLanguageIncludePricingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchIncludePricing">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchIncludePricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:KeywordSearchIncludePricingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:KeywordSearchIncludePricingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordParametricSearch">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/KeywordParametricSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:KeywordParametricSearchSecurity" part="Security" use="literal" />
+        <soap:header message="tns:KeywordParametricSearchPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber2">
+      <soap:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumber2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumber2Security" part="Security" use="literal" />
+        <soap:header message="tns:GetProductInfoByDigikeyPartNumber2PartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchServiceSoap12" type="tns:SearchServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlternatePackagingByDigikeyPartNumber">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/GetAlternatePackagingByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAlternatePackagingByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetAlternatePackagingByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumberSiteLanguage">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumberSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumberSiteLanguageSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumberSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuantityOnHandByDigikeyPartNumber">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/GetQuantityOnHandByDigikeyPartNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetQuantityOnHandByDigikeyPartNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetQuantityOnHandByDigikeyPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguage">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:KeywordSearchSiteLanguageSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:KeywordSearchSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearch">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:KeywordSearchSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:KeywordSearchPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumberSiteLanguage">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/SearchByManufacturerPartNumberSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchByManufacturerPartNumberSiteLanguageSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SearchByManufacturerPartNumberSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByManufacturerPartNumber">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/SearchByManufacturerPartNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchByManufacturerPartNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SearchByManufacturerPartNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendorSiteLanguage">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/SearchByVendorSiteLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchByVendorSiteLanguageSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SearchByVendorSiteLanguagePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByVendor">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/SearchByVendor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchByVendorSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SearchByVendorPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/SystemAvailabilityCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchSiteLanguageIncludePricing">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchSiteLanguageIncludePricing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:KeywordSearchSiteLanguageIncludePricingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:KeywordSearchSiteLanguageIncludePricingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordSearchIncludePricing">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/KeywordSearchIncludePricing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:KeywordSearchIncludePricingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:KeywordSearchIncludePricingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeywordParametricSearch">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/KeywordParametricSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:KeywordParametricSearchSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:KeywordParametricSearchPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoByDigikeyPartNumber2">
+      <soap12:operation soapAction="http://services.digikey.com/SearchWS/GetProductInfoByDigikeyPartNumber2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumber2Security" part="Security" use="literal" />
+        <soap12:header message="tns:GetProductInfoByDigikeyPartNumber2PartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides a service-oriented API to Digi-Key part information for authorized partners.</wsdl:documentation>
+    <wsdl:port name="SearchServiceSoap" binding="tns:SearchServiceSoap">
+      <soap:address location="http://servicestest.digikey.com/search/search.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchServiceSoap12" binding="tns:SearchServiceSoap12">
+      <soap12:address location="http://servicestest.digikey.com/search/search.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,13 @@
+"Designator","Footprint","Mid X","Mid Y","Ref X","Ref Y","Pad X","Pad Y","Layer","Rotation","Comment"
+""
+"IC1","IC-SOIC-8","420mil","960mil","420mil","960mil","325.512mil","1035mil","T","0.00","ILD205T"
+"IC2","IC-SOIC-8","805mil","960mil","805mil","960mil","710.512mil","1035mil","T","0.00","ILD205T"
+"T1","IC-TSOT-6","1005mil","735mil","1005mil","735mil","967.598mil","687.756mil","T","90.00","PMN25EN"
+"T2","IC-TSOT-6","415mil","325mil","415mil","325mil","377.598mil","277.756mil","T","90.00","PMN25EN"
+"T3","IC-TSOT-6","415mil","155mil","415mil","155mil","377.598mil","107.756mil","T","90.00","PMN25EN"
+"T4","IC-TSOT-6","500mil","735mil","500mil","735mil","462.598mil","687.756mil","T","90.00","PMN25EN"
+"IC3","IC-SOIC-20","785mil","455mil","785mil","455mil","498.538mil","486.736mil","T","45.00","MCP2200-I/SO"
+"IC4","IC-TSSOP-20","275mil","585mil","275mil","585mil","272.912mil","424.231mil","T","135.00","PIC24F16KA301T-I/SS"
+"D1","LED-GREEN-0603","1110mil","145mil","1110mil","145mil","1110mil","178.464mil","T","270.00","Green"
+"D2","LED-GREEN-0603","1025mil","145mil","1025mil","145mil","1025mil","111.535mil","T","90.00","Green"
+

@@ -1,0 +1,5 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\bin\sz.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\bin\sz.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\sz\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\sz\obj\Debug\sz.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\sz\obj\Debug\sz.pdb

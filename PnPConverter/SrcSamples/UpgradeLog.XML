@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SharpZipAll2008">
+</Property><Property Name="Solution File" Value="D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\SharpZipAll2008.sln">
+</Property><Property Name="Date" Value="woensdag 28 januari 2015">
+</Property><Property Name="Time" Value="17:56">
+</Property></Properties><Event ErrorLevel="0" Project="SharpZipLibTests" Source="tests\SharpZipLibTests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SharpZipLibTests" Source="tests\SharpZipLibTests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ICSharpCode.SharpZLib" Source="src\ICSharpCode.SharpZLib.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ICSharpCode.SharpZLib" Source="src\ICSharpCode.SharpZLib.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="sz" Source="samples\cs\sz\sz.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="sz" Source="samples\cs\sz\sz.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="zf" Source="samples\cs\zf\zf.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="zf" Source="samples\cs\zf\zf.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CreateZipFile" Source="samples\vb\CreateZipFile\CreateZipFile.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CreateZipFile" Source="samples\vb\CreateZipFile\CreateZipFile.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="viewzipfile" Source="samples\vb\viewzipfile\viewzipfile.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="viewzipfile" Source="samples\vb\viewzipfile\viewzipfile.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="minibzip2" Source="samples\vb\minibzip2\minibzip2.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="minibzip2" Source="samples\vb\minibzip2\minibzip2.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="zipfiletest" Source="samples\vb\zipfiletest\zipfiletest.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="zipfiletest" Source="samples\vb\zipfiletest\zipfiletest.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Tar" Source="samples\cs\tar\Tar.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="Tar" Source="samples\cs\tar\Tar.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="SharpZipAll2008.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="SharpZipAll2008.sln" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="SharpZipLibTests" Source="tests\SharpZipLibTests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ICSharpCode.SharpZLib" Source="src\ICSharpCode.SharpZLib.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="sz" Source="samples\cs\sz\sz.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="zf" Source="samples\cs\zf\zf.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CreateZipFile" Source="samples\vb\CreateZipFile\CreateZipFile.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="viewzipfile" Source="samples\vb\viewzipfile\viewzipfile.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="minibzip2" Source="samples\vb\minibzip2\minibzip2.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="zipfiletest" Source="samples\vb\zipfiletest\zipfiletest.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

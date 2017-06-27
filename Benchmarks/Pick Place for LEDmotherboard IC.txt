@@ -1,0 +1,4 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+PIC1       SSOP-SS20_N         56.3125mm      39.248mm     56.3125mm      39.248mm     52.8625mm      42.173mm  T          0.00 PIC18LF14K50-I/SS
+Rdebug     RES-0603            78.2519mm     35.3553mm     78.2519mm     35.3553mm     77.4019mm     35.3553mm  T          0.00 10k  

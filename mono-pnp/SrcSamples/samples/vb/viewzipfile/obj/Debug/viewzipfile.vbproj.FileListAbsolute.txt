@@ -1,0 +1,10 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\bin\viewzipfile.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\bin\viewzipfile.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\bin\ICSharpCode.SharpZipLib.dll
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\bin\ICSharpCode.SharpZipLib.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\bin\ICSharpCode.SharpZipLib.xml
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\obj\Debug\NewProject.MainForm.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\obj\Debug\viewzipfile.vbproj.GenerateResource.Cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\obj\Debug\viewzipfile.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\viewzipfile\obj\Debug\viewzipfile.pdb

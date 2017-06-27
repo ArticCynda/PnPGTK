@@ -1,0 +1,10 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\bin\Debug\CreateZipFile.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\bin\Debug\CreateZipFile.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\bin\Debug\ICSharpCode.SharpZipLib.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\obj\Debug\CreateZipFile.CreateZipFile.MainForm.resources
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\obj\Debug\CreateZipFile.vbproj.GenerateResource.Cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\obj\Debug\CreateZipFile.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\vb\CreateZipFile\obj\Debug\CreateZipFile.pdb

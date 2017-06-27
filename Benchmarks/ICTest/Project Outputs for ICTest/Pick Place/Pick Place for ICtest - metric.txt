@@ -1,0 +1,13 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+IC1        IC-SOIC-8            10.668mm      24.384mm      10.668mm      24.384mm       8.268mm      26.289mm  T          0.00 ILD205T        
+IC2        IC-SOIC-8            20.447mm      24.384mm      20.447mm      24.384mm      18.047mm      26.289mm  T          0.00 ILD205T        
+T1         IC-TSOT-6            25.527mm      18.669mm      25.527mm      18.669mm      24.577mm      17.469mm  T         90.00 PMN25EN        
+T2         IC-TSOT-6            10.541mm       8.255mm      10.541mm       8.255mm       9.591mm       7.055mm  T         90.00 PMN25EN        
+T3         IC-TSOT-6            10.541mm       3.937mm      10.541mm       3.937mm       9.591mm       2.737mm  T         90.00 PMN25EN        
+T4         IC-TSOT-6              12.7mm      18.669mm        12.7mm      18.669mm       11.75mm      17.469mm  T         90.00 PMN25EN        
+IC3        IC-SOIC-20           19.939mm      11.557mm      19.939mm      11.557mm     12.6629mm     12.3631mm  T         45.00 MCP2200-I/SO   
+IC4        IC-TSSOP-20           6.985mm      14.859mm       6.985mm      14.859mm       6.932mm     10.7755mm  T        135.00 PIC24F16KA301T-I/SS
+D1         LED-GREEN-0603       28.194mm       3.683mm      28.194mm       3.683mm      28.194mm       4.533mm  T        270.00 Green          
+D2         LED-GREEN-0603       26.035mm       3.683mm      26.035mm       3.683mm      26.035mm       2.833mm  T         90.00 Green          
+

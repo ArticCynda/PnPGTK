@@ -1,0 +1,8 @@
+Added Component: Designator=M1(MECH-SCREW-M2.3)
+Added Component: Designator=M2(MECH-SCREW-M2.3)
+Added Component: Designator=M3(MECH-SCREW-M2.3)
+Added Component: Designator=M4(MECH-SCREW-M2.3)
+Added Member To Class: ClassName=Caps Member=Component M1 Screw hole
+Added Member To Class: ClassName=Caps Member=Component M2 Screw hole
+Added Member To Class: ClassName=Caps Member=Component M3 Screw hole
+Added Member To Class: ClassName=Caps Member=Component M4 Screw hole

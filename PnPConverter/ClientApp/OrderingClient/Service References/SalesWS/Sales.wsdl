@@ -1,0 +1,3275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://services.digikey.com/Sales" xmlns:s1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://services.digikey.com/Sales" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides a service-oriented API to Digi-Key's online ordering for authorized partners</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://services.digikey.com/Sales">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AddDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="partNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDetailResult" type="tns:Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Detail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BackorderQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedPrice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FlagSubstitutesExist" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuoteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SequenceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VendorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PartnerInformation" type="tns:PartnerInformationSoapHeader" />
+      <s:complexType name="PartnerInformationSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartnerID" type="s2:guid" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="AddDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfNewDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNewDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NewDetail" nillable="true" type="tns:NewDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NewDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuoteId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDetailsResult" type="tns:Details" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Details">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DetailsList" type="tns:ArrayOfDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Detail" nillable="true" type="tns:Detail" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateDigiKeyOrder">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateDigiKeyOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SalesOrder">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AccessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Billing" type="tns:Billing" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCommit" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:Details" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Export" type="tns:Export" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewDetails" type="tns:ArrayOfNewDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="tns:Notes" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesOrderNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Shipping" type="tns:Shipping" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingBilling" type="tns:ShippingBilling" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Totals" type="tns:Totals" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorIdentificationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="WebId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Billing">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCard" type="tns:BillingCreditCard" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISOCountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCodePlus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateOrProvinceCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BillingCreditCard">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationMonth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationYear" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameOnCard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAdviceAddendum1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAdviceAddendum2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAdviceAddendum3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAdviceAddendum4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Export">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionDestinationISOCountryCode6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionEndUser" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExportQuestionIAmResponsible" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionTypeOfApplication" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionCompanyDo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExportQuestionSpecificApplication" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Notes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Shipping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowSaturdayDelivery" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BackorderHoldDays" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackorderShippingBillingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackorderShipperAccountNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BackorderShippingBillingThirdPartyAccount" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackorderShippingMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeoCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipperAccountNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShippingBillingThirdPartyAccount" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingBillingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VATNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Website" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShippingBilling">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Totals">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstimatedSalesTax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GSTTax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HSTTax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Shipping" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubTotal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cartId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CartItems" type="tns:ArrayOfNewCartItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNewCartItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NewCartItem" nillable="true" type="tns:NewCartItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NewCartItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuoteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCartResult" type="tns:UpdateCartResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateCartResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CartMessageResponse" type="tns:CartMessageResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="CartItemList" type="tns:ArrayOfCartItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CartMessageResponse">
+        <s:attribute name="WebId" type="s:int" use="required" />
+        <s:attribute name="AccessId" type="s:int" use="required" />
+        <s:attribute name="CartId" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfCartItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CartItem" nillable="true" type="tns:CartItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CartItem">
+        <s:attribute name="MFRPartNumber" type="s:string" />
+        <s:attribute name="TransactionID" type="s:int" use="required" />
+        <s:attribute name="ItemErrMsg" type="s:string" />
+      </s:complexType>
+      <s:element name="CreateDigiKeyOrderBySite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderBySiteResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderBySiteCustomerNumberResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSubmitDigiKeyOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrder" type="tns:SalesOrder" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSubmitDigiKeyOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSubmitDigiKeyOrderResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sequenceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteDetailResult" type="tns:Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBilling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBillingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBillingResult" type="tns:Billing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBillingPaymentTypesAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBillingPaymentTypesAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBillingPaymentTypesAvailableResult" type="tns:BillingPaymentTypesAvailable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BillingPaymentTypesAvailable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentTypesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sequenceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailResult" type="tns:Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailsResult" type="tns:Details" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDigiKeyOrderTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDigiKeyOrderTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDigiKeyOrderTypesResult" type="tns:DigiKeyOrderTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DigiKeyOrderTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyOrderTypesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDigiKeySites">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDigiKeySitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDigiKeySitesResult" type="tns:DigiKeySites" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DigiKeySites">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeySitesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExportResult" type="tns:Export" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExportQuestionCompanyDo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExportQuestionCompanyDoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExportQuestionCompanyDoResult" type="tns:ExportQuestionCompanyDo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExportQuestionCompanyDo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyDoList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetExportQuestionTypeOfApplication">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExportQuestionTypeOfApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExportQuestionTypeOfApplicationResult" type="tns:ExportQuestionTypeOfApplication" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExportQuestionTypeOfApplication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeOfApplicationList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetISOCountryCodes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetISOCountryCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetISOCountryCodesResult" type="tns:CountryCodes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryCodes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCodesList" type="tns:ArrayOfCountryCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCountryCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryCode" nillable="true" type="tns:CountryCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CountryCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotesResult" type="tns:Notes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderStatusBySalesOrderNumberCustomerNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="salesOrderNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderStatusBySalesOrderNumberCustomerNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderStatusBySalesOrderNumberCustomerNumberResult" type="tns:SalesOrderStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SalesOrderStatus">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SalesOrder">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OrderStatus" type="tns:OrderStatus" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="OrderStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Invoices" type="tns:ArrayOfInvoice" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastShipment" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpenOrderDetails" type="tns:ArrayOfOpenOrderDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesOrderNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Invoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Boxes" type="tns:ArrayOfBox" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfInvoiceDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MSCNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipmentDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBox">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Box" nillable="true" type="tns:Box" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Box">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BoxId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackingLink" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightPounds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightOunces" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetail" nillable="true" type="tns:InvoiceDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityBackorder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityCancelled" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityOrdered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityShipped" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOpenOrderDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OpenOrderDetail" nillable="true" type="tns:OpenOrderDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OpenOrderDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityBackorder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityOrdered" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrderStatusByWebIdAccessId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderStatusByWebIdAccessIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderStatusByWebIdAccessIdResult" type="tns:SalesOrderStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiKeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingByDigiKeyPartNumberQuantityResult" type="tns:Pricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Pricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CatalogPricing" type="tns:ArrayOfPrice" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiReelFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiscountedPricing" type="tns:ArrayOfPrice" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaximumQuantityAvailableForDiscountedPricing" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimumOrderQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuantityAvailable" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityRequested" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StandardPackage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Price" nillable="true" type="tns:Price" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Price">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedPrice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriceBreak" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityIPAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiKeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityIPAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingByDigiKeyPartNumberQuantityIPAddressResult" type="tns:Pricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiKeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberResult" type="tns:Pricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiKeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="shipToISOCountryCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeResult" type="tns:Pricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiKeyPartNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="shipToISOCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteResult" type="tns:Pricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pricings" type="tns:ArrayOfNewPrice" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNewPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NewPrice" nillable="true" type="tns:NewPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NewPrice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigiKeyPartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipToISOCountryCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPricingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPricingsResult" type="tns:Pricings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Pricings">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PricingsList" type="tns:ArrayOfPricing" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Pricing" nillable="true" type="tns:Pricing" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShipping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShippingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingResult" type="tns:Shipping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShippingBackorderHoldDays">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShippingBackorderHoldDaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingBackorderHoldDaysResult" type="tns:ShippingBackorderHoldDays" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShippingBackorderHoldDays">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BackorderHoldDaysList" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShippingMethodsAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="shippingMethodType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShippingMethodsAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingMethodsAvailableResult" type="tns:ShippingMethods" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShippingMethods">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingMethodsList" type="tns:ArrayOfShippingMethod" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShippingMethod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShippingMethod" nillable="true" type="tns:ShippingMethod" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShippingMethod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Method" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingBillingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingBillingTypeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShippingMethodTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShippingMethodTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingMethodTypesResult" type="tns:ShippingMethodTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShippingMethodTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingMethodTypesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShippingOrderTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShippingOrderTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingOrderTypesResult" type="tns:ShippingOrderTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShippingOrderTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderTypesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShippingTypesAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShippingTypesAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShippingTypesAvailableResult" type="tns:ShippingTypesAvailable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShippingTypesAvailable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingTypesList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStateCodes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStateCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStateCodesResult" type="tns:StateCodes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StateCodes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateCodesList" type="tns:ArrayOfStateCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStateCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StateCode" nillable="true" type="tns:StateCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StateCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTotals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTotalsResult" type="tns:Totals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBilling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="billing" type="tns:Billing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBillingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBillingResult" type="tns:Billing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sequenceId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetDetailResult" type="tns:Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="export" type="tns:Export" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetExportResult" type="tns:Export" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="tns:Notes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNotesResult" type="tns:Notes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetShipping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="shipping" type="tns:Shipping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetShippingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetShippingResult" type="tns:Shipping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitOrderResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SystemAvailabilityCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="SystemAvailabilityCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemAvailabilityCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateOrderResult" type="tns:SalesOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderBilling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderBillingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateOrderBillingResult" type="tns:Billing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateOrderExportResult" type="tns:Export" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderShipping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="webId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accessId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateOrderShippingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateOrderShippingResult" type="tns:Shipping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <s:element name="Security" type="s1:SecuritySoapHeader" />
+      <s:complexType name="SecuritySoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UsernameToken" type="s1:UsernameToken" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="UsernameToken">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDetail" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDetails" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailsSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailsPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCart" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySite" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySitePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumber" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourcePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubmitDigiKeyOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSubmitDigiKeyOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubmitDigiKeyOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSubmitDigiKeyOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubmitDigiKeyOrderSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubmitDigiKeyOrderPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDetail" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDetailSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDetailPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBilling" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingPaymentTypesAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBillingPaymentTypesAvailable" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingPaymentTypesAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBillingPaymentTypesAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingPaymentTypesAvailableSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetBillingPaymentTypesAvailablePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeyOrderTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDigiKeyOrderTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeyOrderTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDigiKeyOrderTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeyOrderTypesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeyOrderTypesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeySitesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDigiKeySites" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeySitesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDigiKeySitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeySitesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetDigiKeySitesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetExportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExport" />
+  </wsdl:message>
+  <wsdl:message name="GetExportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExportSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetExportPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionCompanyDoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExportQuestionCompanyDo" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionCompanyDoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExportQuestionCompanyDoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionCompanyDoSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionCompanyDoPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionTypeOfApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExportQuestionTypeOfApplication" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionTypeOfApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExportQuestionTypeOfApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionTypeOfApplicationSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetExportQuestionTypeOfApplicationPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountryCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetISOCountryCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountryCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetISOCountryCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountryCodesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountryCodesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotes" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusBySalesOrderNumberCustomerNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusBySalesOrderNumberCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusBySalesOrderNumberCustomerNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusBySalesOrderNumberCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusBySalesOrderNumberCustomerNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusBySalesOrderNumberCustomerNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusByWebIdAccessIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusByWebIdAccessId" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusByWebIdAccessIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusByWebIdAccessIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusByWebIdAccessIdSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderStatusByWebIdAccessIdPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantity" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantitySecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityIPAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityIPAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityIPAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityIPAddressSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityIPAddressPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSitePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPricings" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingsSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetPricingsPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShipping" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingBackorderHoldDaysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShippingBackorderHoldDays" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingBackorderHoldDaysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingBackorderHoldDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingBackorderHoldDaysSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingBackorderHoldDaysPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodsAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShippingMethodsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodsAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingMethodsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodsAvailableSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodsAvailablePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShippingMethodTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingMethodTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodTypesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingMethodTypesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingOrderTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShippingOrderTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingOrderTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingOrderTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingOrderTypesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingOrderTypesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingTypesAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShippingTypesAvailable" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingTypesAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShippingTypesAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingTypesAvailableSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetShippingTypesAvailablePartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetStateCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStateCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetStateCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStateCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStateCodesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetStateCodesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTotals" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTotalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalsSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalsPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetBillingSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBilling" />
+  </wsdl:message>
+  <wsdl:message name="SetBillingSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBillingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SetBillingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDetail" />
+  </wsdl:message>
+  <wsdl:message name="SetDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDetailSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SetDetailPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetExportSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExport" />
+  </wsdl:message>
+  <wsdl:message name="SetExportSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetExportSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SetExportPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNotes" />
+  </wsdl:message>
+  <wsdl:message name="SetNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNotesSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SetNotesPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetShippingSoapIn">
+    <wsdl:part name="parameters" element="tns:SetShipping" />
+  </wsdl:message>
+  <wsdl:message name="SetShippingSoapOut">
+    <wsdl:part name="parameters" element="tns:SetShippingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetShippingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SetShippingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitOrder" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="SystemAvailabilityCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SystemAvailabilityCheck" />
+  </wsdl:message>
+  <wsdl:message name="SystemAvailabilityCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SystemAvailabilityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateOrder" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderBillingSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateOrderBilling" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderBillingSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateOrderBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderBillingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderBillingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderExportSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateOrderExport" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderExportSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateOrderExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderExportSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderExportPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderShippingSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateOrderShipping" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderShippingSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateOrderShippingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderShippingSecurity">
+    <wsdl:part name="Security" element="s1:Security" />
+  </wsdl:message>
+  <wsdl:message name="ValidateOrderShippingPartnerInformation">
+    <wsdl:part name="PartnerInformation" element="tns:PartnerInformation" />
+  </wsdl:message>
+  <wsdl:portType name="SalesServiceSoap">
+    <wsdl:operation name="AddDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a detail to an order</wsdl:documentation>
+      <wsdl:input message="tns:AddDetailSoapIn" />
+      <wsdl:output message="tns:AddDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add multiple details to an order</wsdl:documentation>
+      <wsdl:input message="tns:AddDetailsSoapIn" />
+      <wsdl:output message="tns:AddDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input message="tns:CreateDigiKeyOrderSoapIn" />
+      <wsdl:output message="tns:CreateDigiKeyOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddDetailsDigiKeyOrderBySiteCartId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order and adds details.</wsdl:documentation>
+      <wsdl:input name="UpdateCart" message="tns:UpdateCartSoapIn" />
+      <wsdl:output name="UpdateCart" message="tns:UpdateCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input name="CreateDigiKeyOrderBySite" message="tns:CreateDigiKeyOrderBySiteSoapIn" />
+      <wsdl:output name="CreateDigiKeyOrderBySite" message="tns:CreateDigiKeyOrderBySiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumber" message="tns:CreateDigiKeyOrderBySiteCustomerNumberSoapIn" />
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumber" message="tns:CreateDigiKeyOrderBySiteCustomerNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSoapIn" />
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSoapIn" />
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new Digi-Key order</wsdl:documentation>
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSoapIn" />
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource" message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubmitDigiKeyOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates and submits a new Digi-Key order</wsdl:documentation>
+      <wsdl:input message="tns:CreateSubmitDigiKeyOrderSoapIn" />
+      <wsdl:output message="tns:CreateSubmitDigiKeyOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a detail from an order</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDetailSoapIn" />
+      <wsdl:output message="tns:DeleteDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBilling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all billing information for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetBillingSoapIn" />
+      <wsdl:output message="tns:GetBillingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingPaymentTypesAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all payment types available for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetBillingPaymentTypesAvailableSoapIn" />
+      <wsdl:output message="tns:GetBillingPaymentTypesAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns detail information for one detail on the order</wsdl:documentation>
+      <wsdl:input message="tns:GetDetailSoapIn" />
+      <wsdl:output message="tns:GetDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all details on the order</wsdl:documentation>
+      <wsdl:input message="tns:GetDetailsSoapIn" />
+      <wsdl:output message="tns:GetDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeyOrderTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all Digi-Key orer types an order can be created in</wsdl:documentation>
+      <wsdl:input message="tns:GetDigiKeyOrderTypesSoapIn" />
+      <wsdl:output message="tns:GetDigiKeyOrderTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeySites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all Digi-Key sites an order can be created in</wsdl:documentation>
+      <wsdl:input message="tns:GetDigiKeySitesSoapIn" />
+      <wsdl:output message="tns:GetDigiKeySitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all export information for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetExportSoapIn" />
+      <wsdl:output message="tns:GetExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionCompanyDo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all options for the export questions what does your company do</wsdl:documentation>
+      <wsdl:input message="tns:GetExportQuestionCompanyDoSoapIn" />
+      <wsdl:output message="tns:GetExportQuestionCompanyDoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionTypeOfApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all options for the export questions for what types of application are these parts intended</wsdl:documentation>
+      <wsdl:input message="tns:GetExportQuestionTypeOfApplicationSoapIn" />
+      <wsdl:output message="tns:GetExportQuestionTypeOfApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountryCodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all 2-alpha ISO country codes and country names</wsdl:documentation>
+      <wsdl:input message="tns:GetISOCountryCodesSoapIn" />
+      <wsdl:output message="tns:GetISOCountryCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all notes for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetNotesSoapIn" />
+      <wsdl:output message="tns:GetNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all information for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderSoapIn" />
+      <wsdl:output message="tns:GetOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusBySalesOrderNumberCustomerNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all order status information for an order for a given salesorder number and customer number</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberSoapIn" />
+      <wsdl:output message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusByWebIdAccessId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all order status information for an order for a given web id and access id</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderStatusByWebIdAccessIdSoapIn" />
+      <wsdl:output message="tns:GetOrderStatusByWebIdAccessIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns US pricing for a part</wsdl:documentation>
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantity" message="tns:GetPricingByDigiKeyPartNumberQuantitySoapIn" />
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantity" message="tns:GetPricingByDigiKeyPartNumberQuantitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns pricing for a part</wsdl:documentation>
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityIPAddress" message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressSoapIn" />
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityIPAddress" message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns pricing for a part based on a given customer number</wsdl:documentation>
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberSoapIn" />
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns pricing for a part based on a given customer number and ship to ISO code</wsdl:documentation>
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSoapIn" />
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns pricing for a part based on a given customer number, ship to ISO code and Digi-Key site</wsdl:documentation>
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSoapIn" />
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite" message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get pricing for multiple parts based on a given customer number, ship to ISO code and Digi-Key site</wsdl:documentation>
+      <wsdl:input message="tns:GetPricingsSoapIn" />
+      <wsdl:output message="tns:GetPricingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all shipping information for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingSoapIn" />
+      <wsdl:output message="tns:GetShippingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingBackorderHoldDays">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all backorder hold days options</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingBackorderHoldDaysSoapIn" />
+      <wsdl:output message="tns:GetShippingBackorderHoldDaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodsAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all ship methods that are available for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingMethodsAvailableSoapIn" />
+      <wsdl:output message="tns:GetShippingMethodsAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all shipping method types</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingMethodTypesSoapIn" />
+      <wsdl:output message="tns:GetShippingMethodTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingOrderTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all shipping order types</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingOrderTypesSoapIn" />
+      <wsdl:output message="tns:GetShippingOrderTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingTypesAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all shipping types available for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetShippingTypesAvailableSoapIn" />
+      <wsdl:output message="tns:GetShippingTypesAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateCodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all 2-character state codes and state names</wsdl:documentation>
+      <wsdl:input message="tns:GetStateCodesSoapIn" />
+      <wsdl:output message="tns:GetStateCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotals">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the totals for an order</wsdl:documentation>
+      <wsdl:input message="tns:GetTotalsSoapIn" />
+      <wsdl:output message="tns:GetTotalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBilling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the billing information for an order</wsdl:documentation>
+      <wsdl:input message="tns:SetBillingSoapIn" />
+      <wsdl:output message="tns:SetBillingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the quantity and customer reference for a detail on the order</wsdl:documentation>
+      <wsdl:input message="tns:SetDetailSoapIn" />
+      <wsdl:output message="tns:SetDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetExport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the export information for an order</wsdl:documentation>
+      <wsdl:input message="tns:SetExportSoapIn" />
+      <wsdl:output message="tns:SetExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the notes for an order</wsdl:documentation>
+      <wsdl:input message="tns:SetNotesSoapIn" />
+      <wsdl:output message="tns:SetNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetShipping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the shipping information for an order</wsdl:documentation>
+      <wsdl:input message="tns:SetShippingSoapIn" />
+      <wsdl:output message="tns:SetShippingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits an existing salesorder</wsdl:documentation>
+      <wsdl:input message="tns:SubmitOrderSoapIn" />
+      <wsdl:output message="tns:SubmitOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks the status of the sales web services</wsdl:documentation>
+      <wsdl:input message="tns:SystemAvailabilityCheckSoapIn" />
+      <wsdl:output message="tns:SystemAvailabilityCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validates an existing salesorder</wsdl:documentation>
+      <wsdl:input message="tns:ValidateOrderSoapIn" />
+      <wsdl:output message="tns:ValidateOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderBilling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validates an existing salesorder's billing information</wsdl:documentation>
+      <wsdl:input message="tns:ValidateOrderBillingSoapIn" />
+      <wsdl:output message="tns:ValidateOrderBillingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderExport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validates an existing salesorder's export information</wsdl:documentation>
+      <wsdl:input message="tns:ValidateOrderExportSoapIn" />
+      <wsdl:output message="tns:ValidateOrderExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderShipping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validates an existing salesorder's shipping information</wsdl:documentation>
+      <wsdl:input message="tns:ValidateOrderShippingSoapIn" />
+      <wsdl:output message="tns:ValidateOrderShippingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesServiceSoap" type="tns:SalesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDetail">
+      <soap:operation soapAction="https://services.digikey.com/Sales/AddDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddDetailSecurity" part="Security" use="literal" />
+        <soap:header message="tns:AddDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDetails">
+      <soap:operation soapAction="https://services.digikey.com/Sales/AddDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddDetailsSecurity" part="Security" use="literal" />
+        <soap:header message="tns:AddDetailsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddDetailsDigiKeyOrderBySiteCartId">
+      <soap:operation soapAction="https://services.digikey.com/Sales/UpdateCart" style="document" />
+      <wsdl:input name="UpdateCart">
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateCartSecurity" part="Security" use="literal" />
+        <soap:header message="tns:UpdateCartPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateCart">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySite" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySite">
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySitePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySite">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumber" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumber">
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumber">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumber" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber">
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType">
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource">
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourcePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubmitDigiKeyOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/CreateSubmitDigiKeyOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateSubmitDigiKeyOrderSecurity" part="Security" use="literal" />
+        <soap:header message="tns:CreateSubmitDigiKeyOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDetail">
+      <soap:operation soapAction="https://services.digikey.com/Sales/DeleteDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteDetailSecurity" part="Security" use="literal" />
+        <soap:header message="tns:DeleteDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBilling">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBillingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingPaymentTypesAvailable">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetBillingPaymentTypesAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBillingPaymentTypesAvailableSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetBillingPaymentTypesAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDetailSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetails">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDetailsSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetDetailsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeyOrderTypes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetDigiKeyOrderTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDigiKeyOrderTypesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetDigiKeyOrderTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeySites">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetDigiKeySites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDigiKeySitesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetDigiKeySitesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExport">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetExportSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionCompanyDo">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetExportQuestionCompanyDo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetExportQuestionCompanyDoSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetExportQuestionCompanyDoPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionTypeOfApplication">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetExportQuestionTypeOfApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetExportQuestionTypeOfApplicationSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetExportQuestionTypeOfApplicationPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountryCodes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetISOCountryCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetISOCountryCodesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetISOCountryCodesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNotesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetNotesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOrderSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusBySalesOrderNumberCustomerNumber">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetOrderStatusBySalesOrderNumberCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusByWebIdAccessId">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetOrderStatusByWebIdAccessId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOrderStatusByWebIdAccessIdSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetOrderStatusByWebIdAccessIdPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantity" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantity">
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantitySecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantity">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityIPAddress" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityIPAddress">
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityIPAddress">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumber" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber">
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode">
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite">
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSitePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricings">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetPricings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPricingsSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetPricingsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipping">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShipping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingBackorderHoldDays">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShippingBackorderHoldDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingBackorderHoldDaysSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingBackorderHoldDaysPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodsAvailable">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShippingMethodsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingMethodsAvailableSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingMethodsAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodTypes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShippingMethodTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingMethodTypesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingMethodTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingOrderTypes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShippingOrderTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingOrderTypesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingOrderTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingTypesAvailable">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetShippingTypesAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShippingTypesAvailableSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetShippingTypesAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateCodes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetStateCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetStateCodesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetStateCodesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotals">
+      <soap:operation soapAction="https://services.digikey.com/Sales/GetTotals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTotalsSecurity" part="Security" use="literal" />
+        <soap:header message="tns:GetTotalsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBilling">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SetBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetBillingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SetBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDetail">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SetDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetDetailSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SetDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExport">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SetExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetExportSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SetExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotes">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SetNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetNotesSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SetNotesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShipping">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SetShipping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetShippingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SetShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SubmitOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SubmitOrderSecurity" part="Security" use="literal" />
+        <soap:header message="tns:SubmitOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <soap:operation soapAction="https://services.digikey.com/Sales/SystemAvailabilityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrder">
+      <soap:operation soapAction="https://services.digikey.com/Sales/ValidateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateOrderSecurity" part="Security" use="literal" />
+        <soap:header message="tns:ValidateOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderBilling">
+      <soap:operation soapAction="https://services.digikey.com/Sales/ValidateOrderBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateOrderBillingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:ValidateOrderBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderExport">
+      <soap:operation soapAction="https://services.digikey.com/Sales/ValidateOrderExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateOrderExportSecurity" part="Security" use="literal" />
+        <soap:header message="tns:ValidateOrderExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderShipping">
+      <soap:operation soapAction="https://services.digikey.com/Sales/ValidateOrderShipping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateOrderShippingSecurity" part="Security" use="literal" />
+        <soap:header message="tns:ValidateOrderShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesServiceSoap12" type="tns:SalesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDetail">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/AddDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddDetailSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:AddDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDetails">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/AddDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddDetailsSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:AddDetailsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddDetailsDigiKeyOrderBySiteCartId">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/UpdateCart" style="document" />
+      <wsdl:input name="UpdateCart">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCartSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:UpdateCartPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateCart">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySite" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySite">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySitePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySite">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumber" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumber">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumber">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumber" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumber">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderType">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource" style="document" />
+      <wsdl:input name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourceSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSourcePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDigiKeyOrderBySiteCustomerNumberAccountNumberOrderTypeOrderSource">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubmitDigiKeyOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/CreateSubmitDigiKeyOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateSubmitDigiKeyOrderSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:CreateSubmitDigiKeyOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDetail">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/DeleteDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteDetailSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:DeleteDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBilling">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetBilling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBillingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingPaymentTypesAvailable">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetBillingPaymentTypesAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBillingPaymentTypesAvailableSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetBillingPaymentTypesAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDetailSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetails">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDetailsSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetDetailsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeyOrderTypes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetDigiKeyOrderTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDigiKeyOrderTypesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetDigiKeyOrderTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigiKeySites">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetDigiKeySites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDigiKeySitesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetDigiKeySitesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExport">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetExportSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionCompanyDo">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetExportQuestionCompanyDo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetExportQuestionCompanyDoSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetExportQuestionCompanyDoPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportQuestionTypeOfApplication">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetExportQuestionTypeOfApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetExportQuestionTypeOfApplicationSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetExportQuestionTypeOfApplicationPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountryCodes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetISOCountryCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetISOCountryCodesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetISOCountryCodesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNotesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetNotesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOrderSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusBySalesOrderNumberCustomerNumber">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetOrderStatusBySalesOrderNumberCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetOrderStatusBySalesOrderNumberCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusByWebIdAccessId">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetOrderStatusByWebIdAccessId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOrderStatusByWebIdAccessIdSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetOrderStatusByWebIdAccessIdPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantity" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantity">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantitySecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantity">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityIPAddress" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityIPAddress">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityIPAddressPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityIPAddress">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumber" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumber">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCode">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricing">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite" style="document" />
+      <wsdl:input name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSiteSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSitePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPricingByDigiKeyPartNumberQuantityCustomerNumberShipToISOCodeSite">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricings">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetPricings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPricingsSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetPricingsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipping">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShipping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingBackorderHoldDays">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShippingBackorderHoldDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingBackorderHoldDaysSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingBackorderHoldDaysPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodsAvailable">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShippingMethodsAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingMethodsAvailableSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingMethodsAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingMethodTypes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShippingMethodTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingMethodTypesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingMethodTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingOrderTypes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShippingOrderTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingOrderTypesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingOrderTypesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingTypesAvailable">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetShippingTypesAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShippingTypesAvailableSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetShippingTypesAvailablePartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateCodes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetStateCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetStateCodesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetStateCodesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotals">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/GetTotals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTotalsSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:GetTotalsPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBilling">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SetBilling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetBillingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SetBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDetail">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SetDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetDetailSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SetDetailPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExport">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SetExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetExportSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SetExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotes">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SetNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetNotesSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SetNotesPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShipping">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SetShipping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetShippingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SetShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SubmitOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SubmitOrderSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:SubmitOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemAvailabilityCheck">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/SystemAvailabilityCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrder">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/ValidateOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateOrderSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:ValidateOrderPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderBilling">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/ValidateOrderBilling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateOrderBillingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:ValidateOrderBillingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderExport">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/ValidateOrderExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateOrderExportSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:ValidateOrderExportPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrderShipping">
+      <soap12:operation soapAction="https://services.digikey.com/Sales/ValidateOrderShipping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateOrderShippingSecurity" part="Security" use="literal" />
+        <soap12:header message="tns:ValidateOrderShippingPartnerInformation" part="PartnerInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides a service-oriented API to Digi-Key's online ordering for authorized partners</wsdl:documentation>
+    <wsdl:port name="SalesServiceSoap" binding="tns:SalesServiceSoap">
+      <soap:address location="https://servicestest.digikey.com/Sales/Sales.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesServiceSoap12" binding="tns:SalesServiceSoap12">
+      <soap12:address location="https://servicestest.digikey.com/Sales/Sales.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,8 @@
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\bin\Debug\ConsoleApplication.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\bin\Debug\ConsoleApplication.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\bin\Debug\ICSharpCode.SharpZipLib.pdb
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\obj\Debug\ConsoleApplication.exe
+D:\Dropbox\PCBtech\tm220a\PnPConverter\PnPConverter\SrcSamples\samples\cs\tar\obj\Debug\ConsoleApplication.pdb

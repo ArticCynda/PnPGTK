@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=IC4 Old Footprint=IC-TSSOP-20 New Footprint=IC-TSSOP-20
+Added Component: Designator=D1(LED-GREEN-0603)
+Added Component: Designator=D2(LED-GREEN-0603)
+Added Member To Class: ClassName=ICtest Member=Component D1 Green
+Added Member To Class: ClassName=ICtest Member=Component D2 Green

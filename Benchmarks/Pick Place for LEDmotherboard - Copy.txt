@@ -1,0 +1,42 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+Rd22       RES-0603            62.2225mm     12.3041mm     62.2225mm     12.3041mm     62.2225mm     11.5541mm  T         90.00 10k           
+Rd21       RES-0603            70.2788mm     12.3041mm     70.2788mm     12.3041mm     70.2788mm     11.5541mm  T         90.00 10k            
+Rusb2      RES-0603            68.7157mm     38.0111mm     68.7157mm     38.0111mm     68.7157mm     37.1611mm  T         90.00 10k             
+Rusb1      RES-0603            70.6497mm     37.6563mm     70.6497mm     37.6563mm     70.6497mm     38.5063mm  T        270.00 10k            
+In2        HDR6x1_200          80.9389mm     17.7335mm     80.9389mm     10.1135mm     80.9389mm      5.0335mm  T         90.00 Header 6       
+Dvusb      diode-do214          44.387mm      2.4964mm      44.387mm      2.4964mm      46.687mm      2.4964mm  T        180.00 Diode          
+Dvdd       diode-do214         43.5352mm      9.4042mm     43.5352mm      9.4042mm     43.5352mm      7.1042mm  T         90.00 Diode          
+DCin       diode-do214         14.4304mm      5.0192mm     14.4304mm      5.0192mm     12.1304mm      5.0192mm  T          0.00 Diode          
+Dbat       diode-do214         43.5352mm      14.948mm     43.5352mm      14.948mm     43.5352mm      17.248mm  T        270.00 Diode          
+PIC1       SSOP-SS20_N         56.3125mm      39.248mm     56.3125mm      39.248mm     52.8625mm      42.173mm  T          0.00 PIC18LF14K50-I/SS
+R2         RES-0603            70.9222mm     41.2261mm     70.9222mm     41.2261mm     70.9222mm     42.0761mm  T        270.00 10k              
+R1         RES-0603            70.8994mm     44.5461mm     70.8994mm     44.5461mm     70.8994mm     43.6961mm  T         90.00 10k             
+*          DCBuck100mA          29.775mm      8.7935mm      29.775mm      8.7935mm     21.2025mm        7.46mm  T          0.00 DCMod_12V_3.3V 
+Rd2        RES-0603            66.7776mm     32.6658mm     66.7776mm     32.6658mm     67.5276mm     32.6658mm  T        180.00 10k            
+Rdebug     RES-0603            78.2519mm     35.3553mm     78.2519mm     35.3553mm     77.4019mm     35.3553mm  T          0.00 10k            
+Rd1        RES-0603            69.6087mm     29.9596mm     69.6087mm     29.9596mm     70.3587mm     29.9596mm  T        180.00 10k            
+R1ldr      RES-0603            66.7607mm      7.4683mm     66.7607mm      7.4683mm     66.7607mm      6.7183mm  T         90.00 10k            
+RFldr      RES-0603            53.1573mm     11.2426mm     53.1573mm     11.2426mm     53.1573mm     11.9926mm  T        270.00 10k             
+Qs         TO-220AB            56.8999mm      7.5931mm     56.8999mm      7.5931mm     56.8999mm      9.9931mm  T        270.00 MOSFET-N       
+In1        HDR2x1-200           5.5009mm      7.5395mm      5.5009mm     10.0795mm      5.5009mm      4.9995mm  T         90.00 Header 2       
+C5         CAP-0603            47.0058mm     11.9507mm     47.0058mm     11.9507mm     47.0058mm     12.8007mm  T        270.00 100n          
+C2         CAP-0603            45.2996mm     37.4783mm     45.2996mm     37.4783mm     44.4496mm     37.4783mm  T          0.00 100n           
+C1         CAP-0603            46.9995mm     39.0089mm     46.9995mm     39.0089mm     46.1495mm     39.0089mm  T          0.00 100n           
+BT2        BAT_2430_CLIP       11.9416mm     31.5018mm     11.9416mm     31.5018mm     11.9416mm     44.2518mm  T        270.00 Battery        
+32.768kHz  AB38t-h             47.0127mm     35.1508mm     47.0127mm     35.1508mm     46.4627mm     35.1508mm  B          0.00 XTAL           
+P1         USB_B_MINI          79.9216mm     43.3293mm     79.9216mm     43.3293mm     77.2216mm     41.7293mm  T         90.00 USB            
+K1         BTN_CH_FLAT         45.9842mm     21.2142mm     45.9842mm     21.2142mm     49.7942mm     21.2142mm  T        180.00 SW-PB          
+Ddebug     LED-GREEN-0603      82.1672mm     35.3477mm     82.1672mm     35.3477mm     81.3172mm     35.3477mm  T          0.00 Green        
+R0         RES-0603            50.4946mm     44.4422mm     50.4946mm     44.4422mm     51.3446mm     44.4422mm  T        180.00 10k            
+6M         ABL                 40.1467mm     38.9494mm     40.1467mm     36.5094mm     40.1467mm     36.5094mm  B         90.00 XTAL           
+C17        CAP-0603            39.4043mm     46.3085mm     39.4043mm     46.3085mm     38.5543mm     46.3085mm  T          0.00 100n           
+C18        CAP-0603            40.1419mm      30.682mm     40.1419mm      30.682mm     40.1419mm      29.832mm  T         90.00 100n           
+C19        CAP-0603            54.9634mm     44.4981mm     54.9635mm     44.4981mm     55.8134mm     44.4981mm  T        180.00 100n
+P5         HDR1X5              54.7553mm     46.8442mm     49.6753mm     46.8442mm     49.6753mm     46.8442mm  T          0.00 Header 5H      
+Rusb       RES-0603            73.7935mm     48.4792mm     73.7935mm     48.4792mm     74.6435mm     48.4792mm  T        180.00 10k         
+Qd         TO-220AB            66.2522mm     26.6582mm     66.2522mm     26.6582mm     68.6522mm     26.6582mm  T        180.00 MOSFET-N       
+Qd2        TO-220AB            66.1789mm     16.9186mm     66.1789mm     16.9186mm     68.5789mm     16.9186mm  T        180.00 MOSFET-N       
+H1         HDR1X2               65.976mm     11.9404mm      65.976mm     13.2104mm      65.976mm     13.2104mm  T        270.00 Header 2       
+H2         HDR1X2              65.2055mm      29.724mm     63.9355mm      29.724mm     63.9355mm      29.724mm  T          0.00 Header 2       
+
